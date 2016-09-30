@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +16,44 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya8-Ih-LJk">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                <nil key="textColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-cl-ua8">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                <state key="normal" title="THE DOOR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCanceled:" destination="BYZ-38-t0r" eventType="touchCancel" id="lCL-Ko-HuF"/>
+                                    <action selector="touchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="ot2-pD-oJA"/>
+                                    <action selector="touchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mp3-1Y-brC"/>
+                                    <action selector="touchUpOutSide:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="jxA-dE-Hm0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aHK-cl-ua8" secondAttribute="bottom" id="04W-jP-oZY"/>
+                            <constraint firstAttribute="trailing" secondItem="ya8-Ih-LJk" secondAttribute="trailing" id="1FB-4H-5r9"/>
+                            <constraint firstItem="aHK-cl-ua8" firstAttribute="top" secondItem="ya8-Ih-LJk" secondAttribute="bottom" id="78k-wu-eEP"/>
+                            <constraint firstItem="ya8-Ih-LJk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Baq-93-9b6"/>
+                            <constraint firstItem="aHK-cl-ua8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eua-gz-mkq"/>
+                            <constraint firstItem="aHK-cl-ua8" firstAttribute="height" secondItem="ya8-Ih-LJk" secondAttribute="height" id="amc-VD-ZNS"/>
+                            <constraint firstItem="ya8-Ih-LJk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vao-pG-g6E"/>
+                            <constraint firstAttribute="trailing" secondItem="aHK-cl-ua8" secondAttribute="trailing" id="yzI-QF-mU0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stopwatchLabel" destination="ya8-Ih-LJk" id="PIP-Gt-Gq4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="334" y="115"/>
         </scene>
     </scenes>
 </document>
