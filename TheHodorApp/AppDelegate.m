@@ -18,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [FIRApp configure];
+    if ([FIRAuth auth].currentUser == nil) {
+        [[FIRAuth auth]
+         signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+             
+         }];
+    }
     return YES;
 }
 

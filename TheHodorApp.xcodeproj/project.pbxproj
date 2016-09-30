@@ -15,6 +15,7 @@
 		ED27D2EF1D9E6E0900129B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED27D2EE1D9E6E0900129B02 /* Assets.xcassets */; };
 		ED27D2F21D9E6E0900129B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED27D2F01D9E6E0900129B02 /* LaunchScreen.storyboard */; };
 		ED27D2FA1D9E6E8B00129B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED27D2F91D9E6E8B00129B02 /* GoogleService-Info.plist */; };
+		ED27D2FD1D9E886100129B02 /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27D2FC1D9E886100129B02 /* AlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		ED27D2F11D9E6E0900129B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED27D2F31D9E6E0900129B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED27D2F91D9E6E8B00129B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED27D2FB1D9E886100129B02 /* AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
+		ED27D2FC1D9E886100129B02 /* AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				ED27D2E61D9E6E0900129B02 /* AppDelegate.m */,
 				ED27D2E81D9E6E0900129B02 /* ViewController.h */,
 				ED27D2E91D9E6E0900129B02 /* ViewController.m */,
+				ED27D2FB1D9E886100129B02 /* AlertController.h */,
+				ED27D2FC1D9E886100129B02 /* AlertController.m */,
 				ED27D2EB1D9E6E0900129B02 /* Main.storyboard */,
 				ED27D2EE1D9E6E0900129B02 /* Assets.xcassets */,
 				ED27D2F01D9E6E0900129B02 /* LaunchScreen.storyboard */,
@@ -230,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED27D2FD1D9E886100129B02 /* AlertController.m in Sources */,
 				ED27D2EA1D9E6E0900129B02 /* ViewController.m in Sources */,
 				ED27D2E71D9E6E0900129B02 /* AppDelegate.m in Sources */,
 				ED27D2E41D9E6E0900129B02 /* main.m in Sources */,

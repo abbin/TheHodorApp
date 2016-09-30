@@ -49,11 +49,106 @@
                     </view>
                     <connections>
                         <outlet property="stopwatchLabel" destination="ya8-Ih-LJk" id="PIP-Gt-Gq4"/>
+                        <segue destination="To5-Rb-UQo" kind="presentation" identifier="AlertController" animates="NO" modalPresentationStyle="overCurrentContext" id="jhS-Qr-s8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="334" y="115"/>
+        </scene>
+        <!--Alert Controller-->
+        <scene sceneID="JQk-1O-8fv">
+            <objects>
+                <viewController storyboardIdentifier="AlertController" id="To5-Rb-UQo" customClass="AlertController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pGb-Jp-BGA"/>
+                        <viewControllerLayoutGuide type="bottom" id="5S8-dg-aKi"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="ska-Jc-eLH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91a-IP-Tuh">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-Vl-7Io">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be displayed in the global leaderboard along with your score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcd-IR-I81">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="type name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9D-nJ-JaP">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qu9-DT-KnG"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-yL-RrU">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ApF-2T-GVF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.0" alpha="0.54040948275862066" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="To5-Rb-UQo" eventType="touchUpInside" id="OcB-ZT-ipq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1y-fi-7no">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="JdU-Y7-gPA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Upload">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upload:" destination="To5-Rb-UQo" eventType="touchUpInside" id="kVD-LS-zzr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="z1y-fi-7no" secondAttribute="trailing" constant="8" id="0Ao-Qz-u4e"/>
+                                    <constraint firstItem="Zcd-IR-I81" firstAttribute="top" secondItem="ugB-Vl-7Io" secondAttribute="bottom" constant="15" id="6Nj-SH-eHO"/>
+                                    <constraint firstItem="Ykc-yL-RrU" firstAttribute="leading" secondItem="91a-IP-Tuh" secondAttribute="leading" constant="8" id="A1Z-td-50l"/>
+                                    <constraint firstAttribute="trailing" secondItem="f9D-nJ-JaP" secondAttribute="trailing" constant="15" id="L0r-bh-Tas"/>
+                                    <constraint firstAttribute="width" constant="300" id="NSJ-Ez-jPU"/>
+                                    <constraint firstItem="ugB-Vl-7Io" firstAttribute="top" secondItem="91a-IP-Tuh" secondAttribute="top" constant="20" id="YmE-P7-NcJ"/>
+                                    <constraint firstItem="Zcd-IR-I81" firstAttribute="leading" secondItem="91a-IP-Tuh" secondAttribute="leading" constant="8" id="Z4f-Ef-hCq"/>
+                                    <constraint firstItem="ugB-Vl-7Io" firstAttribute="leading" secondItem="91a-IP-Tuh" secondAttribute="leading" constant="8" id="aVI-pK-ieO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ykc-yL-RrU" secondAttribute="bottom" constant="8" id="esB-6a-V4j"/>
+                                    <constraint firstItem="z1y-fi-7no" firstAttribute="leading" secondItem="Ykc-yL-RrU" secondAttribute="trailing" id="frR-JA-8HZ"/>
+                                    <constraint firstItem="z1y-fi-7no" firstAttribute="top" secondItem="f9D-nJ-JaP" secondAttribute="bottom" constant="15" id="h2n-hN-Szu"/>
+                                    <constraint firstAttribute="trailing" secondItem="ugB-Vl-7Io" secondAttribute="trailing" constant="8" id="njx-q2-kXs"/>
+                                    <constraint firstItem="f9D-nJ-JaP" firstAttribute="leading" secondItem="91a-IP-Tuh" secondAttribute="leading" constant="15" id="oFO-2T-yHY"/>
+                                    <constraint firstAttribute="bottom" secondItem="z1y-fi-7no" secondAttribute="bottom" constant="8" id="t5f-Ks-Whg"/>
+                                    <constraint firstItem="f9D-nJ-JaP" firstAttribute="top" secondItem="Zcd-IR-I81" secondAttribute="bottom" constant="15" id="uaf-lQ-gc3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zcd-IR-I81" secondAttribute="trailing" constant="8" id="xUi-mI-Afb"/>
+                                    <constraint firstItem="z1y-fi-7no" firstAttribute="width" secondItem="Ykc-yL-RrU" secondAttribute="width" id="xVX-1J-J17"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="91a-IP-Tuh" firstAttribute="centerX" secondItem="ska-Jc-eLH" secondAttribute="centerX" id="8h3-r2-O06"/>
+                            <constraint firstItem="91a-IP-Tuh" firstAttribute="centerY" secondItem="ska-Jc-eLH" secondAttribute="centerY" id="dzL-WU-0eM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="f9D-nJ-JaP" id="rXr-UV-1Pp"/>
+                        <outlet property="verticalConstrain" destination="dzL-WU-0eM" id="fBF-9c-uIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZK4-r2-6rD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="110"/>
         </scene>
     </scenes>
 </document>

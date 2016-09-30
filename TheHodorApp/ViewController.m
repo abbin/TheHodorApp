@@ -7,6 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "AlertController.h"
+
+@import Firebase;
+
+NSString *const scoreKey = @"userScore";
+NSString *const nameKey = @"userName";
+NSString *const idKey = @"userId";
 
 @interface ViewController ()
 
@@ -15,9 +22,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *stopwatchLabel;
 
-@property (assign, nonatomic) NSUInteger score;
-
-@property (assign, nonatomic) NSUInteger microSeconds;
+@property (assign, nonatomic) NSTimeInterval currentScore;
 
 - (void)onStartPressed;
 - (void)onStopPressed;
@@ -37,20 +42,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    AlertController *vc = segue.destinationViewController;
+    [vc withCompletionHandler:^(NSString *name) {
+        
+        NSString *userName = name;
+        
+        if (userName == nil) {
+            userName = @"Anonymous";
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setDouble:_currentScore forKey:scoreKey];
+        [[NSUserDefaults standardUserDefaults] setObject:userName forKey:nameKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        FIRDatabaseReference *ref = [[FIRDatabase database] reference];
+        
+
+        
+        NSString *key = [FIRAuth auth].currentUser.uid;
+        
+        NSDictionary *post = @{scoreKey: [NSNumber numberWithDouble:_currentScore],
+                               nameKey: userName,
+                               idKey: [FIRAuth auth].currentUser.uid};
+        
+        NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: post};
+        
+        [ref updateChildValues:childUpdates];
+        
+        _currentScore = 0;
+
+    }];
+}
+
 - (void)updateTimer
 {
-    _microSeconds++;
-    
-    if (_microSeconds>=100) {
-        _score++;
-        _microSeconds = 0;
-    }
-    
-    NSLog(@"%lu",(unsigned long)_score);
-    
     // Create date from the elapsed time
     NSDate *currentDate = [NSDate date];
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.startDate];
+    _currentScore = timeInterval;
+    NSLog(@"%f",_currentScore);
+    
     NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     
     // Create a date formatter
@@ -61,6 +93,7 @@
     // Format the elapsed time and set it to the label
     NSString *timeString = [dateFormatter stringFromDate:timerDate];
     self.stopwatchLabel.text = timeString;
+    
 }
 
 - (void)onStartPressed{
@@ -78,11 +111,38 @@
     [self.stopWatchTimer invalidate];
     self.stopWatchTimer = nil;
     [self updateTimer];
-    _score = 0;
-    _microSeconds = 0;
+    [self updateScore];
+
 }
 
 -(void)updateScore{
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:nameKey]) {
+        NSTimeInterval saveScore = [[NSUserDefaults standardUserDefaults] doubleForKey:scoreKey];
+        
+        if (_currentScore > saveScore) {
+            [[NSUserDefaults standardUserDefaults] setDouble:_currentScore forKey:scoreKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            FIRDatabaseReference *ref = [[FIRDatabase database] reference];
+            
+            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:nameKey];
+            
+            NSString *key = [FIRAuth auth].currentUser.uid;
+            
+            NSDictionary *post = @{scoreKey: [NSNumber numberWithDouble:_currentScore],
+                                   nameKey: userName,
+                                   idKey: [FIRAuth auth].currentUser.uid};
+            
+            NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: post};
+            
+            [ref updateChildValues:childUpdates];
+            
+        }
+        _currentScore = 0;
+    }
+    else{
+        [self performSegueWithIdentifier:@"AlertController" sender:self];
+    }
     
 }
 
