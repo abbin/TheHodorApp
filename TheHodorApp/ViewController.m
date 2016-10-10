@@ -22,6 +22,7 @@ NSString *const idKey = @"userId";
 @property (strong, nonatomic) NSDate *startDate; // Stores the date of the click on the start button *
 
 @property (strong, nonatomic) IBOutlet UILabel *stopwatchLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hekp;
 
 @property (assign, nonatomic) NSTimeInterval currentScore;
 
@@ -34,6 +35,10 @@ NSString *const idKey = @"userId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString * namestring = [[NSUserDefaults standardUserDefaults] objectForKey:nameKey];
+    if (namestring) {
+        self.hekp.hidden = YES;
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -105,6 +110,9 @@ NSString *const idKey = @"userId";
 }
 
 - (void)onStartPressed{
+    if (!self.hekp.hidden) {
+        self.hekp.hidden = YES;
+    }
     self.startDate = [NSDate date];
     
     // Create the stop watch timer that fires every 10 ms

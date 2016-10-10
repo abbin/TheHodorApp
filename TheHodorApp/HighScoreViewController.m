@@ -61,6 +61,14 @@
     
     cell.cellCountry.text = [dict objectForKey:@"userCountry"];
     
+    NSString * idnt = [dict objectForKey:@"userId"];
+    
+    if ([idnt isEqualToString:[FIRAuth auth].currentUser.uid]) {
+        cell.cellName.textColor = [UIColor redColor];
+    }else{
+        cell.cellName.textColor = [UIColor blackColor];
+    }
+    
     return cell;
 }
 

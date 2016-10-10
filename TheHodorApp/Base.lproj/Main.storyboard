@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,14 +46,23 @@
                                     <action selector="showList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CKO-H0-KGr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold the door as logn as you can. Be the best in the world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGb-zu-LOF">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aHK-cl-ua8" secondAttribute="bottom" id="04W-jP-oZY"/>
+                            <constraint firstItem="zGb-zu-LOF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="0kJ-Wy-KZM"/>
                             <constraint firstAttribute="trailing" secondItem="ya8-Ih-LJk" secondAttribute="trailing" id="1FB-4H-5r9"/>
                             <constraint firstItem="aHK-cl-ua8" firstAttribute="top" secondItem="ya8-Ih-LJk" secondAttribute="bottom" id="78k-wu-eEP"/>
+                            <constraint firstItem="zGb-zu-LOF" firstAttribute="height" secondItem="aHK-cl-ua8" secondAttribute="height" multiplier="0.5" id="A70-Yt-bm5"/>
                             <constraint firstItem="ya8-Ih-LJk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Baq-93-9b6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zGb-zu-LOF" secondAttribute="trailing" constant="10" id="Csf-Ko-aHk"/>
                             <constraint firstItem="aHK-cl-ua8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eua-gz-mkq"/>
+                            <constraint firstItem="zGb-zu-LOF" firstAttribute="top" secondItem="aHK-cl-ua8" secondAttribute="top" id="IHc-Ag-yT7"/>
                             <constraint firstItem="aHK-cl-ua8" firstAttribute="height" secondItem="ya8-Ih-LJk" secondAttribute="height" id="amc-VD-ZNS"/>
                             <constraint firstItem="uMS-1M-1RQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="eeM-mT-Fdf"/>
                             <constraint firstItem="uMS-1M-1RQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="hb1-vC-pCz"/>
@@ -61,13 +71,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hekp" destination="zGb-zu-LOF" id="qVW-rM-DIc"/>
                         <outlet property="stopwatchLabel" destination="ya8-Ih-LJk" id="PIP-Gt-Gq4"/>
                         <segue destination="To5-Rb-UQo" kind="presentation" identifier="AlertController" animates="NO" modalPresentationStyle="overCurrentContext" id="jhS-Qr-s8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="115"/>
+            <point key="canvasLocation" x="333.60000000000002" y="114.69265367316342"/>
         </scene>
         <!--Alert Controller-->
         <scene sceneID="JQk-1O-8fv">
@@ -223,7 +234,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMP-AB-i9u" id="WoZ-Wb-dd5">
-                                            <frame key="frameInset" width="375" height="54"/>
+                                            <frame key="frameInset" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-zZ-RQE">
