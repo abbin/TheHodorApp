@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) NSArray *highScores;
+
+-(void)changeRoot:(UIViewController*)newViewController;
 
 @end
 

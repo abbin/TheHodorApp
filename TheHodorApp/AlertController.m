@@ -141,8 +141,13 @@
 
 - (IBAction)upload:(id)sender {
     if (self.nameTextField.text.length>0) {
-        [self cancel:nil];
         _completionHandler(self.nameTextField.text);
+        [self.nameTextField resignFirstResponder];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.view.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }];
     }
 }
 

@@ -16,6 +16,10 @@
 		ED27D2F21D9E6E0900129B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED27D2F01D9E6E0900129B02 /* LaunchScreen.storyboard */; };
 		ED27D2FA1D9E6E8B00129B02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED27D2F91D9E6E8B00129B02 /* GoogleService-Info.plist */; };
 		ED27D2FD1D9E886100129B02 /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27D2FC1D9E886100129B02 /* AlertController.m */; };
+		ED9AA47F1D9FC4C7003226C4 /* IMG_0002.m4a in Resources */ = {isa = PBXBuildFile; fileRef = ED9AA47E1D9FC4C7003226C4 /* IMG_0002.m4a */; };
+		ED9AA4821D9FC92F003226C4 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9AA4811D9FC92F003226C4 /* HighScoreViewController.m */; };
+		ED9AA4851D9FCA7F003226C4 /* HighTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9AA4841D9FCA7F003226C4 /* HighTableViewCell.m */; };
+		EDE3371D1D9F972400D0AAE1 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE3371C1D9F972400D0AAE1 /* IntroViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,13 @@
 		ED27D2F91D9E6E8B00129B02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED27D2FB1D9E886100129B02 /* AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
 		ED27D2FC1D9E886100129B02 /* AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertController.m; sourceTree = "<group>"; };
+		ED9AA47E1D9FC4C7003226C4 /* IMG_0002.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_0002.m4a; sourceTree = "<group>"; };
+		ED9AA4801D9FC92F003226C4 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
+		ED9AA4811D9FC92F003226C4 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
+		ED9AA4831D9FCA7F003226C4 /* HighTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighTableViewCell.h; sourceTree = "<group>"; };
+		ED9AA4841D9FCA7F003226C4 /* HighTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighTableViewCell.m; sourceTree = "<group>"; };
+		EDE3371B1D9F972400D0AAE1 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		EDE3371C1D9F972400D0AAE1 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +104,18 @@
 				ED27D2E91D9E6E0900129B02 /* ViewController.m */,
 				ED27D2FB1D9E886100129B02 /* AlertController.h */,
 				ED27D2FC1D9E886100129B02 /* AlertController.m */,
+				EDE3371B1D9F972400D0AAE1 /* IntroViewController.h */,
+				EDE3371C1D9F972400D0AAE1 /* IntroViewController.m */,
+				ED9AA4801D9FC92F003226C4 /* HighScoreViewController.h */,
+				ED9AA4811D9FC92F003226C4 /* HighScoreViewController.m */,
+				ED9AA4831D9FCA7F003226C4 /* HighTableViewCell.h */,
+				ED9AA4841D9FCA7F003226C4 /* HighTableViewCell.m */,
 				ED27D2EB1D9E6E0900129B02 /* Main.storyboard */,
 				ED27D2EE1D9E6E0900129B02 /* Assets.xcassets */,
 				ED27D2F01D9E6E0900129B02 /* LaunchScreen.storyboard */,
 				ED27D2F31D9E6E0900129B02 /* Info.plist */,
 				ED27D2F91D9E6E8B00129B02 /* GoogleService-Info.plist */,
+				ED9AA47E1D9FC4C7003226C4 /* IMG_0002.m4a */,
 				ED27D2E21D9E6E0900129B02 /* Supporting Files */,
 			);
 			path = TheHodorApp;
@@ -176,6 +194,7 @@
 				ED27D2F21D9E6E0900129B02 /* LaunchScreen.storyboard in Resources */,
 				ED27D2FA1D9E6E8B00129B02 /* GoogleService-Info.plist in Resources */,
 				ED27D2EF1D9E6E0900129B02 /* Assets.xcassets in Resources */,
+				ED9AA47F1D9FC4C7003226C4 /* IMG_0002.m4a in Resources */,
 				ED27D2ED1D9E6E0900129B02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +258,9 @@
 				ED27D2EA1D9E6E0900129B02 /* ViewController.m in Sources */,
 				ED27D2E71D9E6E0900129B02 /* AppDelegate.m in Sources */,
 				ED27D2E41D9E6E0900129B02 /* main.m in Sources */,
+				EDE3371D1D9F972400D0AAE1 /* IntroViewController.m in Sources */,
+				ED9AA4851D9FCA7F003226C4 /* HighTableViewCell.m in Sources */,
+				ED9AA4821D9FC92F003226C4 /* HighScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +304,15 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Abbin Varghese (365M9G4VL5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abbin Varghese (EDXP6Y48QS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = EDXP6Y48QS;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -307,6 +332,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "596ded27-00b8-4b4c-a395-cfd5b90c454b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -330,12 +356,15 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Abbin Varghese (EDXP6Y48QS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abbin Varghese (EDXP6Y48QS)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = EDXP6Y48QS;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -348,6 +377,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "596ded27-00b8-4b4c-a395-cfd5b90c454b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -359,12 +389,16 @@
 			baseConfigurationReference = A0E93473E4BFEE37840FEC34 /* Pods-TheHodorApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EDXP6Y48QS;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Abbin Varghese (365M9G4VL5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TheHodorApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abn.TheHodorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -373,12 +407,16 @@
 			baseConfigurationReference = 71A72184A86784C228D45DEF /* Pods-TheHodorApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EDXP6Y48QS;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Abbin Varghese (EDXP6Y48QS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TheHodorApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abn.TheHodorApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

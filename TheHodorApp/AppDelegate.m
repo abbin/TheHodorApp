@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import Firebase;
+#import "IntroViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,15 +16,39 @@
 
 @implementation AppDelegate
 
-
+-(void)changeRoot:(UIViewController*)newViewController{
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{ self.window.rootViewController = newViewController; }
+                    completion:nil];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [FIRApp configure];
+    [FIRDatabase database].persistenceEnabled = YES;
+    
     if ([FIRAuth auth].currentUser == nil) {
         [[FIRAuth auth]
          signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
              
          }];
     }
+    if (![[NSUserDefaults standardUserDefaults] stringForKey:@"userName"]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        IntroViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"IntroViewController"];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = rootViewController;
+        [self.window makeKeyAndVisible];
+    }
+    
+    [[[[FIRDatabase database] reference] child:@"userScore"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        if (snapshot.value != [NSNull null]) {
+            NSArray *array = [snapshot.value allValues];
+            NSSortDescriptor * descriptor = [[NSSortDescriptor alloc] initWithKey:@"userScore" ascending:NO];
+            self.highScores = [array sortedArrayUsingDescriptors:@[descriptor]];
+        }
+    }];
+    
     return YES;
 }
 

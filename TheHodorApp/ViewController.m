@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AlertController.h"
+#import "HighScoreViewController.h"
 
 @import Firebase;
 
@@ -36,6 +37,10 @@ NSString *const idKey = @"userId";
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)showList:(id)sender {
+    HighScoreViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HighScoreViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -58,15 +63,19 @@ NSString *const idKey = @"userId";
         
         FIRDatabaseReference *ref = [[FIRDatabase database] reference];
         
-
+        NSLocale *locale = [NSLocale currentLocale];
+        NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+        NSString *country = [locale displayNameForKey: NSLocaleCountryCode value: countryCode];
         
         NSString *key = [FIRAuth auth].currentUser.uid;
         
-        NSDictionary *post = @{scoreKey: [NSNumber numberWithDouble:_currentScore],
-                               nameKey: userName,
-                               idKey: [FIRAuth auth].currentUser.uid};
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:[NSNumber numberWithDouble:_currentScore] forKey:scoreKey];
+        [dict setObject:userName forKey:nameKey];
+        [dict setObject:[FIRAuth auth].currentUser.uid forKey:idKey];
+        [dict setObject:country forKey:@"userCountry"];
         
-        NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: post};
+        NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: dict};
         
         [ref updateChildValues:childUpdates];
         
@@ -81,7 +90,6 @@ NSString *const idKey = @"userId";
     NSDate *currentDate = [NSDate date];
     NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.startDate];
     _currentScore = timeInterval;
-    NSLog(@"%f",_currentScore);
     
     NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     
@@ -129,11 +137,17 @@ NSString *const idKey = @"userId";
             
             NSString *key = [FIRAuth auth].currentUser.uid;
             
-            NSDictionary *post = @{scoreKey: [NSNumber numberWithDouble:_currentScore],
-                                   nameKey: userName,
-                                   idKey: [FIRAuth auth].currentUser.uid};
+            NSLocale *locale = [NSLocale currentLocale];
+            NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+            NSString *country = [locale displayNameForKey: NSLocaleCountryCode value: countryCode];
             
-            NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: post};
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setObject:[NSNumber numberWithDouble:_currentScore] forKey:scoreKey];
+            [dict setObject:userName forKey:nameKey];
+            [dict setObject:[FIRAuth auth].currentUser.uid forKey:idKey];
+            [dict setObject:country forKey:@"userCountry"];
+            
+            NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: dict};
             
             [ref updateChildValues:childUpdates];
             
