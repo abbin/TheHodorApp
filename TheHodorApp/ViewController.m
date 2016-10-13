@@ -82,6 +82,8 @@ NSString *const idKey = @"userId";
         
         NSDictionary *childUpdates = @{[@"/userScore/" stringByAppendingString:key]: dict};
         
+        NSLog(@"%@",childUpdates);
+        
         [ref updateChildValues:childUpdates];
         
         _currentScore = 0;

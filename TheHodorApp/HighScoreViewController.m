@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong) AppDelegate *delegate;
+@property (nonatomic, strong) NSArray *array;
 
 @end
 
@@ -27,15 +28,18 @@
     self.table.rowHeight = UITableViewAutomaticDimension;
     
     _delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSSortDescriptor * descriptor = [[NSSortDescriptor alloc] initWithKey:@"userScore" ascending:NO];
+    self.array = [_delegate.highScores sortedArrayUsingDescriptors:@[descriptor]];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _delegate.highScores.count;
+    return _array.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HighTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HighTableViewCell"];
-    NSDictionary *dict = [_delegate.highScores objectAtIndex:indexPath.row];
+    NSDictionary *dict = [_array objectAtIndex:indexPath.row];
     cell.cellName.text = [dict objectForKey:@"userName"];
     
     NSTimeInterval theTimeInterval = [[dict objectForKey:@"userScore"] doubleValue];

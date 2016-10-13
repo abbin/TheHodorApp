@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:01:53:11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya8-Ih-LJk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya8-Ih-LJk">
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
                                 <nil key="textColor"/>
                             </label>
@@ -231,10 +231,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighTableViewCell" rowHeight="55" id="pMP-AB-i9u" customClass="HighTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="55"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMP-AB-i9u" id="WoZ-Wb-dd5">
-                                            <frame key="frameInset" width="1000" height="55"/>
+                                            <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-zZ-RQE">
@@ -277,6 +277,11 @@
                                     <outlet property="delegate" destination="tW4-cB-cHH" id="xO5-Ui-Eit"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSa-e8-4qK">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -285,7 +290,9 @@
                             <constraint firstItem="aq5-Bt-NqQ" firstAttribute="leading" secondItem="wN8-xq-Dib" secondAttribute="leading" id="WV3-ej-5YB"/>
                             <constraint firstAttribute="trailing" secondItem="aq5-Bt-NqQ" secondAttribute="trailing" id="hBL-HP-S2u"/>
                             <constraint firstItem="5iq-aJ-tRl" firstAttribute="leading" secondItem="wN8-xq-Dib" secondAttribute="leading" constant="10" id="kTk-a1-rFl"/>
+                            <constraint firstItem="SSa-e8-4qK" firstAttribute="centerX" secondItem="wN8-xq-Dib" secondAttribute="centerX" id="pUU-R0-4CM"/>
                             <constraint firstItem="5iq-aJ-tRl" firstAttribute="top" secondItem="wN8-xq-Dib" secondAttribute="top" constant="10" id="v8n-67-fJK"/>
+                            <constraint firstItem="SSa-e8-4qK" firstAttribute="centerY" secondItem="5iq-aJ-tRl" secondAttribute="centerY" id="ydM-L6-M7T"/>
                         </constraints>
                     </view>
                     <connections>

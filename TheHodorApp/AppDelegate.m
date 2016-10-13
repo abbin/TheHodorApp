@@ -27,10 +27,21 @@
     [FIRApp configure];
     [FIRDatabase database].persistenceEnabled = YES;
     
+//    NSError *error;
+//    [[FIRAuth auth] signOut:&error];
+//    if (!error) {
+//        // Sign-out succeeded
+//    }
+    
     if ([FIRAuth auth].currentUser == nil) {
         [[FIRAuth auth]
          signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
-             
+             if (!error) {
+                 NSLog(@"User created");
+             }
+             else{
+                 NSLog(@"User create failed with error %@", error.localizedDescription);
+             }
          }];
     }
     if (![[NSUserDefaults standardUserDefaults] stringForKey:@"userName"]) {
@@ -41,11 +52,13 @@
         [self.window makeKeyAndVisible];
     }
     
-    [[[[FIRDatabase database] reference] child:@"userScore"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[[FIRDatabase database] reference] child:@"userScore"] queryOrderedByChild:@"userScore"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         if (snapshot.value != [NSNull null]) {
-            NSArray *array = [snapshot.value allValues];
-            NSSortDescriptor * descriptor = [[NSSortDescriptor alloc] initWithKey:@"userScore" ascending:NO];
-            self.highScores = [array sortedArrayUsingDescriptors:@[descriptor]];
+            if (self.highScores == nil) {
+                self.highScores = [NSMutableArray array];
+            }
+            NSLog(@"%@",snapshot.value);
+            [self.highScores addObject:snapshot.value];
         }
     }];
     
